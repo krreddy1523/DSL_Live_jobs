@@ -1,0 +1,39 @@
+pipelineJob('iminda_Hconnect_PROD_Deployer') {
+
+  def repo = 'https://github.com/OpsTree/ContinuousIntegration.git'
+
+  
+  description("Pipeline for $repo")
+  
+  parameters {
+       
+        choiceParam('VERSION', ['3.0', '2.0', '1.0'])
+          booleanParam('All', true)
+          booleanParam('buzzapi', false)
+          booleanParam('dmsapi', false)
+          booleanParam('dmsscheduler', false)
+          booleanParam('docwalletapi', false)
+          booleanParam('hondaConnect', false)
+          booleanParam('notifapi', false)
+          booleanParam('security', false)
+          booleanParam('userapi', false)
+          booleanParam('vehicleapi', false)
+          booleanParam('vehiclescheduler', false)
+          
+  }
+
+  definition {
+    cpsScm {
+      scm {
+        git {
+          remote { url(repo) }
+          branches('master')
+          scriptPath('misc/Jenkinsfile.v2')
+          extensions { }  // required as otherwise it may try to tag the repo, which you may not want
+        }
+
+      
+      }
+    }
+  }
+}

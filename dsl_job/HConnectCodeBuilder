@@ -1,0 +1,260 @@
+job('dsl_HConnectCodeBuilder') {
+  
+  description("HConnectCodeBuilder")
+  
+ 
+  
+     parameters {
+        gitParam('Branch_Name') {
+            description(' ')
+	         type('BRANCH')
+    	      branch('master')
+        }
+       stringParam( "Version", "", "" )
+        }
+  scm {
+  git {
+   
+    remote {
+      url("https://github.com/Rajasekharreddy15/spring3_test.git")
+      branches('${Branch_Name}')
+    }
+  
+  }
+}
+  steps {
+     
+        maven('clean install package -Pprod')
+    
+    nexusPublisherBuildStep {
+      nexusInstanceId('nexus_server')
+      nexusRepositoryId('release_honda_conect')
+      
+          packages {
+            mavenPackage {
+            mavenCoordinate {
+            groupId('release_honda_connect')
+            artifactId('dms-scheduler')
+            version('${version}')
+            packaging('war')
+          }
+         mavenAssetList {
+         mavenAsset {
+         filePath('dms/dms-scheduler/target/dms-scheduler-1.0-SNAPSHOT.war')
+         classifier(' ')
+         extension(' ')
+}
+}
+}
+            mavenPackage {
+            mavenCoordinate {
+            groupId('release_honda_connect')
+            artifactId('hondaConnect')
+            version('${version}')
+            packaging('war')
+          }
+         mavenAssetList {
+         mavenAsset {
+         filePath('hondaConnect/target/hondaConnect-1.0-SNAPSHOT.war')
+         classifier(' ')
+         extension(' ')
+}
+         }         
+}
+}     
+}
+ 
+     nexusPublisherBuildStep {
+      nexusInstanceId('nexus_server')
+      nexusRepositoryId('release_honda_conect')
+      
+          packages {
+            mavenPackage {
+            mavenCoordinate {
+            groupId('release_honda_connect')
+            artifactId('dms-scheduler')
+            version('${version}')
+            packaging('war')
+          }
+         mavenAssetList {
+         mavenAsset {
+         filePath('dms/dms-scheduler/target/dms-scheduler-1.0-SNAPSHOT.war')
+         classifier(' ')
+         extension(' ')
+}
+}
+}
+            mavenPackage {
+            mavenCoordinate {
+            groupId('release_honda_connect')
+            artifactId('hondaConnect')
+            version('${version}')
+            packaging('war')
+          }
+         mavenAssetList {
+         mavenAsset {
+         filePath('hondaConnect/target/hondaConnect-1.0-SNAPSHOT.war')
+         classifier(' ')
+         extension(' ')
+}
+         }         
+}
+}     
+}
+    
+     nexusPublisherBuildStep {
+      nexusInstanceId('nexus_server')
+      nexusRepositoryId('release_honda_conect')
+      
+          packages {
+            mavenPackage {
+            mavenCoordinate {
+            groupId('release_honda_connect')
+            artifactId('dms-scheduler')
+            version('${version}')
+            packaging('war')
+          }
+         mavenAssetList {
+         mavenAsset {
+         filePath('dms/dms-scheduler/target/dms-scheduler-1.0-SNAPSHOT.war')
+         classifier(' ')
+         extension(' ')
+}
+}
+}
+            mavenPackage {
+            mavenCoordinate {
+            groupId('release_honda_connect')
+            artifactId('hondaConnect')
+            version('${version}')
+            packaging('war')
+          }
+         mavenAssetList {
+         mavenAsset {
+         filePath('hondaConnect/target/hondaConnect-1.0-SNAPSHOT.war')
+         classifier(' ')
+         extension(' ')
+}
+         }         
+}
+}     
+}
+    
+     nexusPublisherBuildStep {
+      nexusInstanceId('nexus_server')
+      nexusRepositoryId('release_honda_conect')
+      
+          packages {
+            mavenPackage {
+            mavenCoordinate {
+            groupId('release_honda_connect')
+            artifactId('dms-scheduler')
+            version('${version}')
+            packaging('war')
+          }
+         mavenAssetList {
+         mavenAsset {
+         filePath('dms/dms-scheduler/target/dms-scheduler-1.0-SNAPSHOT.war')
+         classifier(' ')
+         extension(' ')
+}
+}
+}
+            mavenPackage {
+            mavenCoordinate {
+            groupId('release_honda_connect')
+            artifactId('hondaConnect')
+            version('${version}')
+            packaging('war')
+          }
+         mavenAssetList {
+         mavenAsset {
+         filePath('hondaConnect/target/hondaConnect-1.0-SNAPSHOT.war')
+         classifier(' ')
+         extension(' ')
+}
+         }         
+}
+}     
+}
+    
+     nexusPublisherBuildStep {
+      nexusInstanceId('nexus_server')
+      nexusRepositoryId('release_honda_conect')
+      
+          packages {
+            mavenPackage {
+            mavenCoordinate {
+            groupId('release_honda_connect')
+            artifactId('dms-scheduler')
+            version('${version}')
+            packaging('war')
+          }
+         mavenAssetList {
+         mavenAsset {
+         filePath('dms/dms-scheduler/target/dms-scheduler-1.0-SNAPSHOT.war')
+         classifier(' ')
+         extension(' ')
+}
+}
+}
+            mavenPackage {
+            mavenCoordinate {
+            groupId('release_honda_connect')
+            artifactId('hondaConnect')
+            version('${version}')
+            packaging('war')
+          }
+         mavenAssetList {
+         mavenAsset {
+         filePath('hondaConnect/target/hondaConnect-1.0-SNAPSHOT.war')
+         classifier(' ')
+         extension(' ')
+}
+         }         
+}
+}     
+}
+    
+     nexusPublisherBuildStep {
+      nexusInstanceId('nexus_server')
+      nexusRepositoryId('release_honda_conect')
+      
+          packages {
+            mavenPackage {
+            mavenCoordinate {
+            groupId('release_honda_connect')
+            artifactId('dms-scheduler')
+            version('${version}')
+            packaging('war')
+          }
+         mavenAssetList {
+         mavenAsset {
+         filePath('dms/dms-scheduler/target/dms-scheduler-1.0-SNAPSHOT.war')
+         classifier(' ')
+         extension(' ')
+}
+}
+}
+            mavenPackage {
+            mavenCoordinate {
+            groupId('release_honda_connect')
+            artifactId('hondaConnect')
+            version('${version}')
+            packaging('war')
+          }
+         mavenAssetList {
+         mavenAsset {
+         filePath('hondaConnect/target/hondaConnect-1.0-SNAPSHOT.war')
+         classifier(' ')
+         extension(' ')
+}
+         }         
+}
+}     
+}
+    
+    
+    
+}
+}

@@ -1,0 +1,231 @@
+job('dsl_IConnectCodeBuilder') {
+  
+  description("IConnectCodeBuilder")
+  
+  logRotator {
+    	daysToKeep(30)
+    	numToKeep(5)
+    	
+	}
+  
+     parameters {
+        gitParam('Branch_Name') {
+            description(' ')
+	         type('BRANCH')
+    	      branch('master')
+        }
+       stringParam( "Version", "", "" )
+        }
+  scm {
+  git {
+   
+    remote {
+      url("https://github.com/Rajasekharreddy15/spring3_test.git")
+    }
+  
+  }
+}
+  steps {
+     
+        maven('clean pakagclean install package -Dmaven.test.skip -Pprodazure', 'module-a/pom.xml')
+    
+    nexusPublisherBuildStep {
+      nexusInstanceId('nexus_server')
+      nexusRepositoryId('server')
+      
+          packages {
+            mavenPackage {
+            mavenCoordinate {
+            groupId('release_iconnect')
+            artifactId('web_war')
+            version('${version}')
+            packaging('war')
+          }
+         mavenAssetList {
+         mavenAsset {
+         filePath('/var/lib/jenkins/workspace/IConnectCodeBuilder/web/web_war/target/web_war-1.0-SNAPSHOT.war')
+         classifier(' ')
+         extension(' ')
+}
+}
+}
+}  
+}
+    nexusPublisherBuildStep {
+      nexusInstanceId('nexus_server')
+      nexusRepositoryId('server')
+      
+          packages {
+            mavenPackage {
+            mavenCoordinate {
+            groupId('release_iconnect')
+            artifactId('web_honda')
+            version('${version}')
+            packaging('war')
+          }
+         mavenAssetList {
+         mavenAsset {
+         filePath('/var/lib/jenkins/workspace/IConnectCodeBuilder/web/web_war/target/web_war-1.0-SNAPSHOT.war')
+         classifier(' ')
+         extension(' ')
+}
+}
+}
+}  
+}
+    nexusPublisherBuildStep {
+      nexusInstanceId('nexus_server')
+      nexusRepositoryId('server')
+      
+          packages {
+            mavenPackage {
+            mavenCoordinate {
+            groupId('release_iconnect')
+            artifactId('admin_portal_web')
+            version('${version}')
+            packaging('war')
+          }
+         mavenAssetList {
+         mavenAsset {
+         filePath('/var/lib/jenkins/workspace/IConnectCodeBuilder/web/web_war/target/web_war-1.0-SNAPSHOT.war')
+         classifier(' ')
+         extension(' ')
+}
+}
+}
+}  
+}
+    nexusPublisherBuildStep {
+      nexusInstanceId('nexus_server')
+      nexusRepositoryId('server')
+      
+          packages {
+            mavenPackage {
+            mavenCoordinate {
+            groupId('release_iconnect')
+            artifactId('api_web')
+            version('${version}')
+            packaging('war')
+          }
+         mavenAssetList {
+         mavenAsset {
+         filePath('/var/lib/jenkins/workspace/IConnectCodeBuilder/web/web_war/target/web_war-1.0-SNAPSHOT.war')
+         classifier(' ')
+         extension(' ')
+}
+}
+}
+}  
+}
+    nexusPublisherBuildStep {
+      nexusInstanceId('nexus_server')
+      nexusRepositoryId('server')
+      
+          packages {
+            mavenPackage {
+            mavenCoordinate {
+            groupId('release_iconnect')
+            artifactId('scheduler')
+            version('${version}')
+            packaging('war')
+          }
+         mavenAssetList {
+         mavenAsset {
+         filePath('/var/lib/jenkins/workspace/IConnectCodeBuilder/web/web_war/target/web_war-1.0-SNAPSHOT.war')
+         classifier(' ')
+         extension(' ')
+}
+}
+}
+}  
+}
+    nexusPublisherBuildStep {
+      nexusInstanceId('nexus_server')
+      nexusRepositoryId('server')
+      
+          packages {
+            mavenPackage {
+            mavenCoordinate {
+            groupId('release_iconnect')
+            artifactId('dealer_portal_honda')
+            version('${version}')
+            packaging('war')
+          }
+         mavenAssetList {
+         mavenAsset {
+         filePath('/var/lib/jenkins/workspace/IConnectCodeBuilder/web/web_war/target/web_war-1.0-SNAPSHOT.war')
+         classifier(' ')
+         extension(' ')
+}
+}
+}
+}  
+}
+    nexusPublisherBuildStep {
+      nexusInstanceId('nexus_server')
+      nexusRepositoryId('server')
+      
+          packages {
+            mavenPackage {
+            mavenCoordinate {
+            groupId('release_iconnect')
+            artifactId('admin_portal_honda')
+            version('${version}')
+            packaging('war')
+          }
+         mavenAssetList {
+         mavenAsset {
+         filePath('/var/lib/jenkins/workspace/IConnectCodeBuilder/web/web_war/target/web_war-1.0-SNAPSHOT.war')
+         classifier(' ')
+         extension(' ')
+}
+}
+}
+}  
+}
+    nexusPublisherBuildStep {
+      nexusInstanceId('nexus_server')
+      nexusRepositoryId('server')
+      
+          packages {
+            mavenPackage {
+            mavenCoordinate {
+            groupId('release_iconnect')
+            artifactId('das_war')
+            version('${version}')
+            packaging('war')
+          }
+         mavenAssetList {
+         mavenAsset {
+         filePath('/var/lib/jenkins/workspace/IConnectCodeBuilder/web/web_war/target/web_war-1.0-SNAPSHOT.war')
+         classifier(' ')
+         extension(' ')
+}
+}
+}
+}  
+}
+    nexusPublisherBuildStep {
+      nexusInstanceId('nexus_server')
+      nexusRepositoryId('server')
+      
+          packages {
+            mavenPackage {
+            mavenCoordinate {
+            groupId('release_iconnect')
+            artifactId('dpu_war')
+            version('${version}')
+            packaging('war')
+          }
+         mavenAssetList {
+         mavenAsset {
+         filePath('/var/lib/jenkins/workspace/IConnectCodeBuilder/web/web_war/target/web_war-1.0-SNAPSHOT.war')
+         classifier(' ')
+         extension(' ')
+}
+}
+}
+}  
+}
+}
+}

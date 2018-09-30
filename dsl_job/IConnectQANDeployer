@@ -1,0 +1,38 @@
+
+pelineJob('iminda_IConnectQANDeployer') {
+
+ def repo = 'https://github.com/OpsTree/ContinuousIntegration.git'
+
+
+ description("IConnectQANDeployer")
+
+ parameters {
+
+       choiceParam('repo_name', ['releaseiconnect'])
+    choiceParam('artifact_name', ['release_iconnect'])
+    choiceParam('VERSION', ['3.0', '2.0', '1.0'])
+         booleanParam('All', true)
+         booleanParam('dpu', false)
+         booleanParam('ROOT', false)
+         booleanParam('admin_portal', false)
+         booleanParam('admin_portal_honda', false)
+         booleanParam('api', false)
+         booleanParam('dealer_portal_honda', false)
+         booleanParam('web_honda', false)
+         
+ }
+
+ definition {
+   cpsScm {
+     scm {
+       git {
+         remote { url(repo) }
+         branches('*/master')
+         scriptPath('misc/Jenkinsfile.v2')
+       lightweight( lightweight = true)
+         //extensions { }  
+       }
+     }
+   }
+ }
+}111111
